@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<div class="container text-center">
+    <h1>Home Page</h1>
+
+    {% load static %}
+    <br>
+    <img src="{% static 'portfolio/db.png' %}" height="200">
+    <br>
+    <a href="{% static 'portfolio/hr.pdf' %}">HR</a>
+
+    {% for app in apps %}
+        <h2>{{ app.name }}</h2>
+        <h4>{{ app.description }}</h4>
+        <img src="{{ app.image.url }} " onclick="location.href = '{{ app.url }}'" height="70">
+        <br>
+        <br>
+    {% endfor %}
+
+    <br>
+    <button onclick="location.href = '/blog'" class="btn btn-info">Button</button>
+    <br>
+    <br>
+    <br>
+</div>
